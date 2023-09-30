@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abborreg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 20:18:16 by abborreg          #+#    #+#             */
-/*   Updated: 2023/09/30 18:09:01 by abborreg         ###   ########.fr       */
+/*   Created: 2023/09/30 18:15:20 by abborreg          #+#    #+#             */
+/*   Updated: 2023/09/30 19:04:30 by abborreg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
 
-	if (!s)
-	{
-		return ;
-	}
 	i = 0;
-	while (i < n)
+	while (i < 0)
 	{
-		*(char *)(s + i) = 0;
+		if (*(unsaigned char *)(s1 + i) != (*(unsaigned char *)(s2 + i)))
+			return (*(unsaigned char *)(s1 + i) - *(unsaigned char *)(s2 + i));
 		i++;
 	}
+	return (0);
 }
