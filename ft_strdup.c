@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abborreg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 19:56:34 by abborreg          #+#    #+#             */
-/*   Updated: 2023/10/13 17:17:34 by abborreg         ###   ########.fr       */
+/*   Created: 2023/10/14 11:56:18 by abborreg          #+#    #+#             */
+/*   Updated: 2023/10/14 12:16:42 by abborreg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*strdup(const char	*s1)
 {
-	unsigned int	num;
-	int				i;
-	int				isneg;
+	char	*str;
+	size_t	i;
 
-	isneg = 1;
+	if (!s1)
+		return (NULL);
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
 	i = 0;
-	num = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\f'
-		|| str[i] == '\r' || str[i] == '\n' || str[i] == '\v')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-		if (str[i++] == '-')
-			np = -1;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s1[i])
 	{
-		num = num * 10 + (str[i] - '0');
+		str[i] = s1[i];
 		i++;
 	}
-	return ((int)(np * num));
+	str[i] = '\0';
+	return (str);
 }
